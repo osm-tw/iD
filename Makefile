@@ -8,7 +8,6 @@ all: \
 	dist/img/iD-sprite.svg \
 	dist/img/maki-sprite.svg
 
-
 MAKI_SOURCES = node_modules/maki/src/*.svg
 
 $(MAKI_SOURCES): node_modules/.install
@@ -41,14 +40,6 @@ BUILDJS_SOURCES = \
 $(BUILDJS_TARGETS): $(BUILDJS_SOURCES) build.js
 	node build.js
 
-
-MODULE_TARGETS = \
-	js/lib/id/index.js \
-
-js/lib/id/index.js: $(shell find modules -type f)
-	@rm -f $@
-	node_modules/.bin/rollup -c rollup.config.js -f umd -n iD modules/index.js --no-strict -o $@
-
 dist/iD.js: \
 	js/lib/bootstrap-tooltip.js \
 	js/lib/d3.v3.js \
@@ -61,7 +52,6 @@ dist/iD.js: \
 	js/lib/d3.trigger.js \
 	js/lib/d3.curtain.js \
 	js/lib/d3.value.js \
-	$(MODULE_TARGETS) \
 	data/introGraph.js
 
 .INTERMEDIATE dist/iD.js: data/data.js
@@ -119,4 +109,4 @@ d3:
 	@echo 'd3 rebuilt. Please reapply 7e2485d, 4da529f, 223974d and 71a3d3e'
 
 clean:
-	rm -f $(BUILDJS_TARGETS) $(MODULE_TARGETS) data/feature-icons.json dist/iD*.js dist/iD.css dist/img/*.svg
+	rm -f $(BUILDJS_TARGETS) data/feature-icons.json dist/iD*.js dist/iD.css dist/img/*.svg

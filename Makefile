@@ -6,6 +6,7 @@ all: \
 	dist/iD.js \
 	dist/iD.min.js \
 	dist/img/iD-sprite.svg \
+	js/lib/id/index.js \
 	dist/img/maki-sprite.svg
 
 MAKI_SOURCES = node_modules/maki/src/*.svg
@@ -21,6 +22,10 @@ data/feature-icons.json: $(MAKI_SOURCES)
 dist/img/iD-sprite.svg: svg/iD-sprite.src.svg svg/iD-sprite.json
 	node svg/spriteify.js --svg svg/iD-sprite.src.svg --json svg/iD-sprite.json > $@
 
+
+js/lib/id/index.js:
+	./node_modules/.bin/browserify modules/id.js > $@
+
 BUILDJS_TARGETS = \
 	data/presets/categories.json \
 	data/presets/fields.json \
@@ -30,7 +35,7 @@ BUILDJS_TARGETS = \
 	data/data.js \
 	dist/locales/en.js \
 	dist/presets.js \
-	dist/imagery.js
+	dist/imagery.js \
 
 BUILDJS_SOURCES = \
 	$(filter-out $(BUILDJS_TARGETS), $(shell find data -type f -name '*.json')) \

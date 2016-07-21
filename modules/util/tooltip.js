@@ -81,8 +81,6 @@ export function tooltip() {
       tip.classed('fade', true);
     }
 
-    // TODO "inside" checks?
-
     tip.append('div')
       .attr('class', 'tooltip-arrow');
     tip.append('div')
@@ -97,11 +95,8 @@ export function tooltip() {
 
   function show() {
     var root = d3.select(this),
-        content = title.apply(this, arguments),
         tip = root.select('.tooltip')
           .classed('in', true),
-        markup = html.apply(this, arguments),
-        innercontent = tip.select('.tooltip-inner')[markup ? 'html' : 'text'](content),
         place = placement.apply(this, arguments),
         outer = getPosition(root.node()),
         inner = getPosition(tip.node()),

@@ -1,4 +1,5 @@
-window.jsonpCache = {};
+var jsonpCache = {};
+window.jsonpCache = jsonpCache;
 
 export function jsonpRequest(url, callback) {
   function rand() {

@@ -1,4 +1,5 @@
 import { t } from '../util/locale';
+import { tooltip } from '../util/tooltip';
 import _ from 'lodash';
 import { tooltipHtml } from './tooltipHtml';
 export function FeatureInfo(context) {
@@ -16,7 +17,7 @@ export function FeatureInfo(context) {
         selection.html('');
 
         if (hiddenList.length) {
-            var tooltip = bootstrap.tooltip()
+            var tooltip = tooltip()
                     .placement('top')
                     .html(true)
                     .title(function() {

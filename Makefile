@@ -41,7 +41,6 @@ $(BUILDJS_TARGETS): $(BUILDJS_SOURCES) build.js
 	node build.js
 
 dist/iD.js: \
-	js/lib/bootstrap-tooltip.js \
 	js/lib/d3.v3.js \
 	js/lib/d3.combobox.js \
 	js/lib/d3.geo.tile.js \

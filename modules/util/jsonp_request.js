@@ -2,6 +2,14 @@ var jsonpCache = {};
 window.jsonpCache = jsonpCache;
 
 export function jsonpRequest(url, callback) {
+
+  if (window.JSONP_FIX) {
+    setTimeout(function() {
+      callback(null, window.JSONP_FIX);
+    }, window.JSONP_DELAY || 0);
+    return;
+  }
+
   function rand() {
     var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
       c = '', i = -1;

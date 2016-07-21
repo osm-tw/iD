@@ -38,6 +38,7 @@
   "devDependencies": {
     "babel-plugin-transform-es2015-modules-commonjs": "6.10.3",
     "babelify": "7.3.0",
+    "brfs": "1.4.3",
     "budo": "8.3.0",
     "chai": "3.5.0",
     "d3": "3.5.5",

@@ -1,11 +1,6 @@
 describe('wikipedia', function() {
     var entity, context, selection, field, selectedId;
 
-    window.JSONP_FIX = {
-        entities: {
-            Q216353: { id: 'Q216353' }
-        }
-    };
 
     function changeTags(changed) {
         var annotation = 'Changed tags.';
@@ -21,6 +16,11 @@ describe('wikipedia', function() {
         selection = d3.select(document.createElement('div'));
         field = context.presets(iD.data.presets).presets().field('wikipedia');
         window.JSONP_DELAY = 0;
+        window.JSONP_FIX = {
+            entities: {
+                Q216353: { id: 'Q216353' }
+            }
+        };
 
         sinon.stub(context, 'selectedIDs', function() { return [selectedId]; });
     });

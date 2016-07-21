@@ -41,15 +41,6 @@ $(BUILDJS_TARGETS): $(BUILDJS_SOURCES) build.js
 	node build.js
 
 dist/iD.js: \
-	js/lib/d3.v3.js \
-	js/lib/d3.combobox.js \
-	js/lib/d3.geo.tile.js \
-	js/lib/d3.keybinding.js \
-	js/lib/d3.one.js \
-	js/lib/d3.dimensions.js \
-	js/lib/d3.trigger.js \
-	js/lib/d3.curtain.js \
-	js/lib/d3.value.js \
 	data/introGraph.js
 
 .INTERMEDIATE dist/iD.js: data/data.js

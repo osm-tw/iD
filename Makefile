@@ -45,7 +45,6 @@ dist/iD.js: \
 	js/lib/d3.v3.js \
 	js/lib/d3.combobox.js \
 	js/lib/d3.geo.tile.js \
-	js/lib/d3.jsonp.js \
 	js/lib/d3.keybinding.js \
 	js/lib/d3.one.js \
 	js/lib/d3.dimensions.js \
